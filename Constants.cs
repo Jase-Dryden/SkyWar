@@ -15,8 +15,8 @@ namespace Unit06
         public static int FRAME_RATE = 60;
 
         // SCREEN
-        public static int SCREEN_WIDTH = 1040;
-        public static int SCREEN_HEIGHT = 680;
+        public static int SCREEN_WIDTH = 700;
+        public static int SCREEN_HEIGHT = 800;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
 
@@ -49,6 +49,8 @@ namespace Unit06
         // KEYS
         public static string LEFT = "left";
         public static string RIGHT = "right";
+        public static string UP = "up";
+        public static string DOWN = "down";
         public static string SPACE = "space";
         public static string ENTER = "enter";
         public static string PAUSE = "p";
@@ -107,9 +109,7 @@ namespace Unit06
         
         public static List<string> RACKET_IMAGES
             = new List<string>() {
-                "Assets/Images/100.png",
-                "Assets/Images/101.png",
-                "Assets/Images/102.png"
+                "Assets/Images/RedShip.png"
             };
 
         public static int RACKET_WIDTH = 106;
