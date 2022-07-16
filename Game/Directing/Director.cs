@@ -44,6 +44,7 @@ namespace Unit06.Game.Directing
             ExecuteActions(Constants.LOAD);
             while (videoService.IsWindowOpen())
             {
+               
                 ExecuteActions(Constants.INPUT);
                 ExecuteActions(Constants.UPDATE);
                 ExecuteActions(Constants.OUTPUT);
@@ -59,6 +60,8 @@ namespace Unit06.Game.Directing
             {
                 action.Execute(cast, script, this);
             }
+           
+            
         }
     }
 }

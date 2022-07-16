@@ -15,8 +15,8 @@ namespace Unit06
         public static int FRAME_RATE = 60;
 
         // SCREEN
-        public static int SCREEN_WIDTH = 700;
-        public static int SCREEN_HEIGHT = 800;
+        public static int SCREEN_WIDTH = 1040;
+        public static int SCREEN_HEIGHT = 680;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
 
@@ -49,8 +49,6 @@ namespace Unit06
         // KEYS
         public static string LEFT = "left";
         public static string RIGHT = "right";
-        public static string UP = "up";
-        public static string DOWN = "down";
         public static string SPACE = "space";
         public static string ENTER = "enter";
         public static string PAUSE = "p";
@@ -106,73 +104,36 @@ namespace Unit06
 
         // RACKET
         public static string RACKET_GROUP = "rackets";
-        
+
         public static List<string> RACKET_IMAGES
             = new List<string>() {
-                "Assets/Images/RedShip.png"
+                "Assets/Images/100.png",
+                "Assets/Images/101.png",
+                "Assets/Images/102.png"
             };
 
         public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
+        public static int RACKET_HEIGHT = 26;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
 
         // BRICK
         public static string BRICK_GROUP = "bricks";
-        
+
         public static Dictionary<string, List<string>> BRICK_IMAGES
             = new Dictionary<string, List<string>>() {
                 { "b", new List<string>() {
-                    "Assets/Images/010.png",
-                    "Assets/Images/011.png",
-                    "Assets/Images/012.png",
-                    "Assets/Images/013.png",
-                    "Assets/Images/014.png",
-                    "Assets/Images/015.png",
-                    "Assets/Images/016.png",
-                    "Assets/Images/017.png",
-                    "Assets/Images/018.png"
+                    "Assets/Images/GreenShip.png",
                 } },
-                { "g", new List<string>() {
-                    "Assets/Images/020.png",
-                    "Assets/Images/021.png",
-                    "Assets/Images/022.png",
-                    "Assets/Images/023.png",
-                    "Assets/Images/024.png",
-                    "Assets/Images/025.png",
-                    "Assets/Images/026.png",
-                    "Assets/Images/027.png",
-                    "Assets/Images/028.png"
-                } },
-                { "p", new List<string>() {
-                    "Assets/Images/030.png",
-                    "Assets/Images/031.png",
-                    "Assets/Images/032.png",
-                    "Assets/Images/033.png",
-                    "Assets/Images/034.png",
-                    "Assets/Images/035.png",
-                    "Assets/Images/036.png",
-                    "Assets/Images/037.png",
-                    "Assets/Images/038.png"
-                } },
-                { "y", new List<string>() {
-                    "Assets/Images/040.png",
-                    "Assets/Images/041.png",
-                    "Assets/Images/042.png",
-                    "Assets/Images/043.png",
-                    "Assets/Images/044.png",
-                    "Assets/Images/045.png",
-                    "Assets/Images/046.png",
-                    "Assets/Images/047.png",
-                    "Assets/Images/048.png"
-                } }
-        };
+            };
+               
 
-        public static int BRICK_WIDTH = 80;
-        public static int BRICK_HEIGHT = 28;
+        public static int BRICK_WIDTH = 150;
+        public static int BRICK_HEIGHT = 60;
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;
         public static int BRICK_POINTS = 50;
+        public static int BRICK_VELOCITY = 1;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

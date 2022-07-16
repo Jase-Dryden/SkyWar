@@ -7,7 +7,7 @@ namespace Unit06.Game.Casting
     {
         private Point position;
         private Point size;
-        private Point velocity;
+        private Point velocity ;
 
         /// <summary>
         /// Constructs a new instance of Actor.
