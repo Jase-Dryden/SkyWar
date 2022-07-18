@@ -22,6 +22,7 @@ namespace Unit06.Game.Scripting
             Racket ship = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
             List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
+            Sound overSound = new Sound(Constants.OVER_SOUND);
             
             foreach (Actor actor in bricks)
             {
@@ -62,9 +63,18 @@ namespace Unit06.Game.Scripting
                 Body shipBody = ship.GetBody();
                 Point other = shipBody.GetPosition();
 
-                if (physicsService.HasCollided(brickBody, shipBody) || other.GetY() <= 0 )
+                if (physicsService.HasCollided(brickBody, shipBody))
                 {
-                    // stats.RemoveLife();
+                    stats.RemoveLife();
+                    if (stats.GetLives() > 0)
+                    {
+                        callback.OnNext(Constants.TRY_AGAIN);
+                    }
+                    else
+                    {
+                        callback.OnNext(Constants.GAME_OVER);
+                        audioService.PlaySound(overSound);
+                    }
                 }
             }
         }
