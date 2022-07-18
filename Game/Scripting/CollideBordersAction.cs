@@ -47,6 +47,11 @@ namespace Unit06.Game.Scripting
                     brick.BounceY();
                   
                 }
+
+                if (dy > 860)
+                {
+                    brick.BounceY();
+                }
     
             }
 

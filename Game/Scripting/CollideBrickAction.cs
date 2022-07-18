@@ -46,7 +46,7 @@ namespace Unit06.Game.Scripting
                 Body ballBody = ball.GetBody();
                 Point other = ballBody.GetPosition();
 
-                if (physicsService.HasCollided(brickBody, ballBody) || other.GetY() <= 0 )
+                if (physicsService.HasCollided(brickBody, ballBody) || other.GetY() <= Constants.FIELD_TOP )
                 {
                     Point point = new Point(-100,100);
                     Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);

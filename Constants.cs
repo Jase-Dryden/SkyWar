@@ -16,7 +16,7 @@ namespace Unit06
 
         // SCREEN
         public static int SCREEN_WIDTH = 1040;
-        public static int SCREEN_HEIGHT = 1000;
+        public static int SCREEN_HEIGHT = 860;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
 
