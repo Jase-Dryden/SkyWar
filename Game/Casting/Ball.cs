@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Unit06.Game.Casting;
+
 
 
 namespace Unit06.Game.Casting
@@ -28,12 +30,12 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void BounceX()
         {
-            Point velocity = body.GetVelocity();
-            double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
-            double vx = velocity.GetX() * -1;
-            double vy = velocity.GetY();
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
+            // Point velocity = body.GetVelocity();
+            // double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
+            // double vx = velocity.GetX() * -1;
+            // double vy = velocity.GetY();
+            // Point newVelocity = new Point((int)vx, (int)vy);
+            // body.SetVelocity(newVelocity);
         }
 
         /// <summary>
@@ -41,13 +43,18 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void BounceY()
         {
-            Point velocity = body.GetVelocity();
-            double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
-            double vx = velocity.GetX();
-            double vy = velocity.GetY() * -1;
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
+            // Point velocity = body.GetVelocity();
+            // double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
+            // double vx = velocity.GetX();
+            // double vy = velocity.GetY() * -1;
+            // Point newVelocity = new Point((int)vx, (int)vy);
+            // body.SetVelocity(newVelocity);
         }
+
+        /// <summary>
+        /// Shot fired.
+        /// </summary>
+
         
         /// <summary>
         /// Gets the body.
@@ -58,6 +65,11 @@ namespace Unit06.Game.Casting
             return body;
         }
 
+        public void SetBody(Body body)
+        {
+            this.body = body;
+        }
+
         /// <summary>
         /// Gets the image.
         /// </summary>
@@ -66,19 +78,14 @@ namespace Unit06.Game.Casting
         {
             return image;
         }
-
-        /// <summary>
-        /// Releases ball in random horizontal direction.
-        /// </summary>
-        public void Release()
+        public void Release(Cast cast)
         {
-            Point velocity = body.GetVelocity();
-            List<int> velocities = new List<int> {Constants.BALL_VELOCITY, Constants.BALL_VELOCITY};
-            int index = random.Next(velocities.Count);
-            double vx = velocities[index];
-            double vy = -Constants.BALL_VELOCITY;
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
+            Racket ship = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
+            Point velocity = new Point(0, -Constants.BALL_VELOCITY);
+            Body body = ship.GetBody();
+            Point position = body.GetPosition();
+            this.body.SetPosition(position);
+            this.body.SetVelocity(velocity);
         }
     }
 }

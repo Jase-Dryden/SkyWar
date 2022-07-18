@@ -68,11 +68,6 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivateBall(Cast cast)
-        {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            ball.Release();
-        }
 
         // private void ActivateBrick(Cast cast)
         // {   
@@ -116,7 +111,7 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
-            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
+            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 1, DateTime.Now);
             script.AddAction(Constants.INPUT, ta);
 
             AddUpdateActions(script);
@@ -125,15 +120,15 @@ namespace Unit06.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
-            ActivateBall(cast);
-            // ActivateBrick(cast);
-
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
 
             ControlRacketAction action = new ControlRacketAction(KeyboardService);
+            ControlBallAction action2 = new ControlBallAction(KeyboardService);
+
             script.AddAction(Constants.INPUT, action);
+            script.AddAction(Constants.INPUT, action2);
 
             AddUpdateActions(script);
             AddOutputActions(script);
@@ -162,8 +157,12 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.BALL_GROUP);
 
-            int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
+        
+            int x = -100;
+            // int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
+            int y = 100;
+            // int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
+        
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
@@ -257,7 +256,11 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.RACKET_GROUP);
 
             int x = Constants.CENTER_X - Constants.RACKET_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT;
+
+            // int x = Constants.CENTER_X - Constants.RACKET_WIDTH / 2;
+            int y = Constants.SCREEN_HEIGHT - 4 * Constants.RACKET_HEIGHT;
+            // int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT;
+
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
@@ -324,6 +327,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
@@ -347,9 +351,13 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveBricksAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
             script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
+            // script.AddAction(Constants.UPDATE, new CollideBallAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CheckOverAction());
+
+
+            // script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CheckOverAction());     
+
         }
     }
 }

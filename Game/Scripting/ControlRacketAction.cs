@@ -15,19 +15,28 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Racket racket = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
+            Racket ship = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
             if (keyboardService.IsKeyDown(Constants.LEFT))
             {
-                racket.SwingLeft();
+                ship.SwingLeft();
             }
             else if (keyboardService.IsKeyDown(Constants.RIGHT))
             {
-                racket.SwingRight();
+                ship.SwingRight();
+            }
+
+            else if (keyboardService.IsKeyDown(Constants.UP))
+            {
+                ship.SwingUp();
+            }
+            else if (keyboardService.IsKeyDown(Constants.DOWN))
+            {
+                ship.SwingDown();
             }
             else
             {
-                racket.StopMoving();
+                ship.StopMoving();
             }
-        }
+        }    
     }
 }

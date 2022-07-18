@@ -50,6 +50,7 @@ namespace Unit06
         public static string LEFT = "left";
         public static string RIGHT = "right";
         public static string SPACE = "space";
+        public static string W = "W";
         public static string ENTER = "enter";
         public static string PAUSE = "p";
 
@@ -97,10 +98,10 @@ namespace Unit06
 
         // BALL
         public static string BALL_GROUP = "balls";
-        public static string BALL_IMAGE = "Assets/Images/000.png";
+        public static string BALL_IMAGE = "Assets/Images/RedFireball.png";
         public static int BALL_WIDTH = 28;
         public static int BALL_HEIGHT = 28;
-        public static int BALL_VELOCITY = 6;
+        public static int BALL_VELOCITY = 20;
 
         // RACKET
         public static string RACKET_GROUP = "rackets";
